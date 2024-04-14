@@ -32,12 +32,21 @@ const create_factory = (config) => {
 
   return new Promise((resolve, reject) => {
     Promise.all(promises)
-    .then(engines => {
-      const stream_factory = (uuid, engine_name, type, format, params, config) => {
-        const engine = engines[key]
-        if(!engine) return null
+    .then(res => {
+      const engines = {}
+      res.forEach(engine => {
+        engines[engine.name] = engine
+      })
 
-        return new engine.m(uuid, format, params, config)
+      const stream_factory = (uuid, engine_name, type, format) => {
+        console.log("factory p1 engine_name", engine_name)
+        const engine = engines[engine_name]
+        if(!engine) return null
+        console.log("factory p2")
+        const params = {}
+        console.log("engine", engine)
+        const stream = new engine.m.default(uuid, format, params, engine.config)
+        return stream
       }
 
       resolve(stream_factory)
