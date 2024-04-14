@@ -38,14 +38,14 @@ const create_factory = (config) => {
         engines[engine.name] = engine
       })
 
-      const stream_factory = (uuid, engine_name, type, format) => {
-        console.log("factory p1 engine_name", engine_name)
-        const engine = engines[engine_name]
+      const stream_factory = (args) => {
+        console.log("stream_factory got", args)
+        const engine = engines[args.engine]
         if(!engine) return null
-        console.log("factory p2")
+        console.log("engine found")
         const params = {}
         console.log("engine", engine)
-        const stream = new engine.m.default(uuid, format, params, engine.config)
+        const stream = new engine.m.default({uuid: args.uuid, format: args.format, params, config: engine.config})
         return stream
       }
 
