@@ -1,0 +1,29 @@
+{
+  "name": "speech-synth-and-recog-stream-factory",
+  "version": "1.0.0",
+  "description": "A simple node.js module that simplifies instantiating our speech synth/recog modules (to be used by ws_speech_server and mrcp_server)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MayamaTakeshi/speech-synth-and-recog-stream-factory.git"
+  },
+  "keywords": [
+    "speech",
+    "synth",
+    "recog",
+    "tts",
+    "sst",
+    "text-to-speech",
+    "speech-to-text",
+    "stream"
+  ],
+  "author": "MayamaTakeshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MayamaTakeshi/speech-synth-and-recog-stream-factory/issues"
+  },
+  "homepage": "https://github.com/MayamaTakeshi/speech-synth-and-recog-stream-factory#readme"
+}
